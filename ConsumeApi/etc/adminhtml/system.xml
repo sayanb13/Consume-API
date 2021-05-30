@@ -14,8 +14,9 @@
                     <label>Enable</label>
                     <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
                 </field>
-                <field id="api_url" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <field id="api_url" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>API Url</label>
+					<validate>required-entry validate-url</validate>
                     <depends>
                         <field id="enable">1</field>
                     </depends>
@@ -37,6 +38,7 @@
                 </field>
                 <field id="auth_username" translate="label" type="text" sortOrder="90" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>HTTP Username</label>
+					<validate>required-entry</validate>
                     <depends>
                         <field id="enable">1</field>
 						<field id="enable_auth">1</field>
@@ -46,14 +48,16 @@
                 <field id="auth_password" translate="label" type="obscure" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>HTTP Password</label>
                     <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
+					<validate>required-entry</validate>
                     <depends>
 						<field id="enable">1</field>
 						<field id="enable_auth">1</field>
                         <field id="integration">api</field>
                     </depends>
                 </field>
-				<field id="admin_api_url" translate="label" type="text" sortOrder="95" showInDefault="1" showInWebsite="1" showInStore="1">
+				<field id="admin_api_url" translate="label" type="text" sortOrder="95" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Admin API Url</label>
+					<validate>required-entry validate-url</validate>
                     <depends>
                         <field id="enable">1</field>
 						<field id="enable_auth">1</field>
@@ -62,6 +66,7 @@
                 </field>
 				<field id="admin_auth_username" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Admin Username</label>
+					<validate>required-entry</validate>
                     <depends>
                         <field id="enable">1</field>
 						<field id="enable_auth">1</field>
@@ -70,6 +75,7 @@
                 </field>
                 <field id="admin_auth_password" translate="label" type="obscure" sortOrder="110" showInDefault="1" showInWebsite="0" showInStore="0">
                     <label>Admin Password</label>
+					<validate>required-entry</validate>
                     <backend_model>Magento\Config\Model\Config\Backend\Encrypted</backend_model>
                     <depends>
 						<field id="enable">1</field>
