@@ -12,8 +12,7 @@ class RestClient
     protected $configDataHelper;
 	
     /**
-     * TaxAndFees constructor.
-     * @param RestClient $restClient
+     * RestClient constructor
      * @param Data $configDataHelper
      */
     public function __construct(
@@ -24,7 +23,6 @@ class RestClient
     }
 	
 	/**
-     * @param array $request
      * @return array|bool|string|\Zend_Http_Response
      */
     public function getApiData()
