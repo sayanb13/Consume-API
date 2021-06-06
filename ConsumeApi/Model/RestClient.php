@@ -12,7 +12,8 @@ class RestClient
     protected $configDataHelper;
 	
     /**
-     * RestClient constructor.
+     * TaxAndFees constructor.
+     * @param RestClient $restClient
      * @param Data $configDataHelper
      */
     public function __construct(
@@ -22,8 +23,16 @@ class RestClient
         $this->configDataHelper = $configDataHelper;
     }
 	
+	/**
+     * @param array $request
+     * @return array|bool|string|\Zend_Http_Response
+     */
     public function getApiData()
     {	
+		if ($this->configDataHelper->getEnabled() == 0) {
+			return false;
+		}
+		
 		$mainApiUrl = $this->configDataHelper->getApiUrl();
         $httpAuthEnabled = $this->configDataHelper->getApiHttpAuthEnabled();
         $httpAuthUsedFor = $this->configDataHelper->getApiHttpAuthUsed();
